@@ -34,4 +34,17 @@ public class TaskManagerTests
         Assert.Throws<ArgumentException>(
             () => manager.AddTask(title!));
     }
+
+    [Fact]
+    public void GetTaskById_ShouldReturnNullWhenTaskDoesNotExist()
+    {
+        // Arrange
+        var manager = new TaskManager();
+
+        // Act
+        var task = manager.GetTaskById(999);
+
+        // Assert
+        Assert.Null(task);
+    }
 }
